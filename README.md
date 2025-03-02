@@ -22,7 +22,7 @@ This project is a **Company Logo Retrieval System** that allows users to input a
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/your-repo/company-logo-retrieval.git
+git clone https://github.com/pallasite99/company-logo-finder.git
 cd company-logo-retrieval
 ```
 
@@ -33,7 +33,7 @@ pip install flask flask-cors requests
 
 ### Step 3: Run the Backend Server
 ```bash
-python app.py  # Ensure your script filename is correct
+python index.py  # Ensure script filename is correct
 ```
 
 ### Step 4: Run the Frontend
@@ -57,6 +57,10 @@ Simply open `index.html` in a browser.
 }
 ```
 
+## Sample UI output (can be made prettier)
+
+![image](https://github.com/user-attachments/assets/36762b8a-a94f-41e5-8276-3171dbe4994d)
+
 ## Deployment Options
 - Deploy the **backend** to **Heroku, AWS, or DigitalOcean**.
 - Host the **frontend** on **Netlify or Vercel**.
@@ -67,5 +71,5 @@ Simply open `index.html` in a browser.
 - Implement **caching mechanisms** for optimized performance.
 
 ## Contact
-For questions or support, please reach out at **your-email@example.com**.
+For questions or support, please reach out at **salil.apte99@gmail.com**.
 
