@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company Logo Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        textarea {
+            width: 50%;
+            height: 100px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .logo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .logo-item {
+            margin: 10px;
+            text-align: center;
+        }
+        img {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 5px;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+    <script>
+        async function fetchLogos() {
+            let input = document.getElementById("companyNames").value;
+            let companies = input.split(',').map(name => name.trim());
+            
+            let response = await fetch("http://127.0.0.1:5000/get_logos", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ companies })
+            });
+            
+            let data = await response.json();
+            let outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "";
+            
+            for (let company in data) {
+                let logoUrl = data[company];
+                let logoElement = `
+                    <div class="logo-item">
+                        <strong>${company}</strong><br>
+                        <img src='${logoUrl}' onerror="this.src='https://via.placeholder.com/150'"/>
+                    </div>
+                `;
+                outputDiv.innerHTML += logoElement;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Company Logo Finder</h2>
+    <p>Enter company names separated by commas:</p>
+    <textarea id="companyNames"></textarea><br>
+    <button onclick="fetchLogos()">Get Logos</button>
+    <div class="logo-container" id="output"></div>
+</body>
+</html>
