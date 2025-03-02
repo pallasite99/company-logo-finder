@@ -23,7 +23,7 @@ This project is a **Company Logo Retrieval System** that allows users to input a
 ### Step 1: Clone the Repository
 ```bash
 git clone https://github.com/pallasite99/company-logo-finder.git
-cd company-logo-retrieval
+cd company-logo-finder
 ```
 
 ### Step 2: Install Dependencies
